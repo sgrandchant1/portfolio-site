@@ -1,0 +1,342 @@
+/* ============================================
+   PROJECT PAGE STYLES
+   Uses shared design tokens from global.css
+   ============================================ */
+
+/* Lock the project page to the viewport */
+.project-page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--header-height, 70px));
+  overflow: hidden;
+}
+
+/* Back navigation */
+.project-back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-bottom: var(--space-lg);
+  padding: var(--space-xs, 0.25rem) var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-card);
+  transition: all var(--transition);
+}
+
+.project-back:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: var(--glow-primary);
+}
+
+.project-back svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Two-column layout — fills remaining height */
+.project-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Left column — locked in place, no scroll */
+.project-visuals {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Right column — scrolls independently */
+.project-text {
+  overflow-y: auto;
+  height: 100%;
+  padding-right: var(--space-md);
+}
+
+.project-text h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-md);
+}
+
+/* Header section */
+.project-header {
+  margin-bottom: var(--space-2xl);
+}
+
+.project-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-secondary);
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+}
+
+.project-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+/* Screenshot placeholder */
+.project-screenshot {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-bg-alt) 100%);
+  border: 2px dashed var(--color-border-dark);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  color: var(--color-text-light);
+  flex-shrink: 0;
+}
+
+.project-screenshot-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-primary);
+  opacity: 0.6;
+}
+
+.project-screenshot-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.project-screenshot--has-image {
+  background: none;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  aspect-ratio: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 0;
+}
+
+.project-screenshot--has-image img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Demo video */
+.project-demo-video {
+  flex-shrink: 0;
+}
+
+.project-demo-video h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.project-demo-video video {
+  width: 100%;
+  max-height: 200px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Description */
+.project-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: var(--space-2xl);
+}
+
+/* Feature list */
+.project-features {
+  margin-bottom: var(--space-2xl);
+}
+
+.project-features ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.project-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.feature-check {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  color: var(--color-accent);
+}
+
+/* Combined info card (tech stack + links) */
+.project-info-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.project-info-section + .project-info-section {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.project-info-card h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-sm);
+}
+
+/* Tech stack tags */
+.project-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.project-tech-list .tag {
+  font-size: 0.8rem;
+}
+
+/* Action links */
+.project-links {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+  justify-content: center;
+  transition: all var(--transition);
+  flex: 1;
+}
+
+.project-link-primary {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.project-link-primary:hover {
+  background: var(--color-primary-dark);
+  color: var(--color-text-inverse);
+}
+
+.project-link-secondary {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.project-link-secondary:hover {
+  background: var(--color-border);
+  color: var(--color-text);
+}
+
+.project-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* 404 / Not Found state */
+.project-not-found {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-lg);
+}
+
+.project-not-found h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--color-border-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.project-not-found p {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-xl);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 860px) {
+  .project-page {
+    height: auto;
+    overflow: auto;
+  }
+
+  .project-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .project-visuals {
+    height: auto;
+    overflow: visible;
+  }
+
+  .project-text {
+    height: auto;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-title {
+    font-size: 1.75rem;
+  }
+
+  .project-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-title {
+    font-size: 1.5rem;
+  }
+
+  .project-screenshot {
+    aspect-ratio: 4 / 3;
+  }
+}
